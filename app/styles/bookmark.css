@@ -1,0 +1,96 @@
+html,
+body {
+  font-family: Roboto;
+}
+#player .html5-video-player.ad-showing .ytp-bookmarkbutton {
+  display: none !important;
+}
+#player .html5-video-player .ytp-bookmarkbutton {
+  display: inline-block;
+}
+#player .bookmark {
+  width: 5px;
+  height: 10px;
+  background-color: white;
+  position: absolute;
+}
+#player .ytp-bookmark-menu {
+  width: 400px;
+  height: 35px;
+  padding: 10px;
+  display: none;
+}
+#player .ytp-bookmark-menu .ytp-panel {
+  width: 400px;
+  height: 35px;
+  position: relative;
+}
+#player .ytp-bookmark-menu .ytp-panel table {
+  width: 100%;
+}
+#player .ytp-bookmark-menu .ytp-panel table td.time {
+  padding-right: 7px;
+}
+#player .ytp-bookmark-menu .ytp-panel table td.time label {
+  font-size: 1.2em;
+  font-weight: 500;
+}
+#player .ytp-bookmark-menu .ytp-panel table td.text {
+  width: 100%;
+  position: relative;
+}
+#player .ytp-bookmark-menu .ytp-panel table td.text a {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 7px;
+  right: 7px;
+  z-index: 1000;
+}
+#player .ytp-bookmark-menu .ytp-panel table td.text input {
+  width: calc(100% - 40px);
+  font-size: 1.5em;
+  border-style: none;
+  border-width: 0px;
+  border-radius: 5px;
+  padding: 5px;
+  padding-right: 35px;
+}
+.bookmarks md-sidenav header {
+  text-align: center;
+  padding-top: 32px;
+}
+.bookmarks md-sidenav header .logo {
+  text-align: center;
+  text-decoration: none;
+  color: #008FDC;
+}
+.bookmarks md-sidenav header .logo img {
+  width: 64px;
+}
+.bookmarks md-sidenav header .logo h1 {
+  font-weight: 400;
+  font-size: 2.25em;
+}
+.share a {
+  display: block;
+  font-size: 2em;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  margin: 10px;
+  width: 250px;
+}
+.share a.facebook {
+  background-color: #3b5998;
+}
+.share a.twitter {
+  background-color: #0084b4;
+}
+.share a.google {
+  background-color: #d34836;
+}
+.share a.pinterest {
+  background-color: #C92228;
+}

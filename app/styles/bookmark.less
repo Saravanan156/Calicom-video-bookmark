@@ -1,0 +1,116 @@
+@primaryColor: #008FDC;
+@secondaryColor: #DC0000;
+@backgroundColor: #EBEDF3;
+@textColor: #2B3541;
+@brand-primary: @primaryColor;
+
+html, body{
+    font-family: Roboto;
+}
+
+#player{
+    .html5-video-player{
+        &.ad-showing{
+            .ytp-bookmarkbutton{
+                display: none !important;
+            }
+        }
+        .ytp-bookmarkbutton{
+            display: inline-block;
+        }
+    }
+    .bookmark{
+        width: 5px;
+        height: 10px;
+        background-color: white;
+        position: absolute;
+    }
+    .ytp-bookmark-menu{
+        width: 400px;
+        height: 35px;
+        padding:10px;
+        display: none;
+        .ytp-panel{
+            width: 400px;
+            height: 35px;
+            position: relative;
+            table{
+                width: 100%;
+                td{
+                    &.time{
+                        padding-right: 7px;
+                        label{
+                            font-size: 1.2em;
+                            font-weight: 500;
+                        } 
+                    }
+                    &.text{
+                        width: 100%;
+                        position: relative;
+                        a{
+                            width: 20px;
+                            height: 20px;
+                            position: absolute;
+                            top: 7px;
+                            right: 7px;
+                            z-index: 1000;
+                        }
+                        input{
+                            width: ~'calc(100% - 40px)';
+                            font-size: 1.5em;
+                            border-style: none;
+                            border-width: 0px;
+                            border-radius: 5px;
+                            padding: 5px;
+                            padding-right: 35px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.bookmarks{
+    md-sidenav{
+        header{
+            text-align: center;
+            padding-top: 32px;
+            .logo{
+                text-align: center;
+                text-decoration: none;
+                color: @primaryColor;
+                img{
+                    width: 64px;
+                }
+                h1{
+                    font-weight: 400;
+                    font-size: 2.25em;
+                }
+            }
+        }
+    }
+}
+.share{
+    a{
+        display: block;
+        font-size: 2em;
+        text-decoration: none;
+        background-color: black;
+        color: white;
+        padding:20px;
+        margin: 10px;
+        width: 250px;
+        &.facebook{
+            background-color: #3b5998;
+        }
+        &.twitter{
+            background-color: #0084b4;
+        }
+        &.google{
+            background-color: #d34836;
+        }
+        &.pinterest{
+            background-color: #C92228;
+        }
+    }
+}

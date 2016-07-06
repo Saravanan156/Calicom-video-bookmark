@@ -1,0 +1,67 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link href="styles/bookmark.css" rel="stylesheet">
+    <link href="/bower_components/angular-material/angular-material.css" rel="stylesheet">
+  </head>
+  <body style="width:350px;" ng-controller="PopupController as vm" ng-cloak>
+
+    <md-content>
+      <md-content ng-if="vm.isYoutube" md-theme="altTheme" layout-gt-sm="row" style="padding: 5px 10px;">
+        <div layout="row" flex style="font-size:1.2em;">
+          <md-input-container>
+            <label>hh:mm:ss</label>
+            <input step="any" maxlength="8" style="width: 65px;text-align: center;" ng-model="vm.newtime" ng-pattern="/(?:[01]\d|2[0123]):(?:[012345]\d):(?:[012345]\d)/gm" />
+          </md-input-container>
+          <md-input-container flex class="md-block">
+            <label>Bookmark title here</label>
+            <input autofocus id="newtext" on-enter="vm.save();" ng-model="vm.newtext" style="font-size: 1.2em;">
+          </md-input-container>
+          <md-input-container>
+              <md-button class="md-icon-button" ng-click="vm.save();"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="20px" height="20px" viewBox="0 0 415.582 415.582" style="enable-background:new 0 0 415.582 415.582;" xml:space="preserve"><g><path d="M411.47,96.426l-46.319-46.32c-5.482-5.482-14.371-5.482-19.853,0L152.348,243.058l-82.066-82.064   c-5.48-5.482-14.37-5.482-19.851,0l-46.319,46.32c-5.482,5.481-5.482,14.37,0,19.852l138.311,138.31   c2.741,2.742,6.334,4.112,9.926,4.112c3.593,0,7.186-1.37,9.926-4.112L411.47,116.277c2.633-2.632,4.111-6.203,4.111-9.925   C415.582,102.628,414.103,99.059,411.47,96.426z" fill="#008fdc"/></g></svg></md-button>
+          </md-input-container>
+        </div>
+      </md-content>
+      <md-list>
+        <md-list-item ng-click="vm.gotoBookmarks();"><h3 style="margin:0;">My Bookmarks</h3></md-list-item>
+        <md-divider></md-divider>
+        <!--<md-list-item ng-click="vm.gotoBookmarks();"><h3 style="margin:0;">Shared Bookmarks</h3></md-list-item>
+        <md-divider></md-divider>-->
+        <md-subheader ng-if="vm.isYoutube" class="md-no-sticky">Current Bookmarks</md-subheader>
+        <md-list-item ng-if="vm.isYoutube" ng-repeat="item in vm.bookmarks" ng-click="vm.goto(item);">
+          <table style="width: 100%;">
+            <tr>
+              <td style="width:60px;font-weight:500;">
+                <p style="margin:0;line-height:40px;font-size:1.1em;">{{vm.formatTime(item.time)}}</p>
+              </td>
+              <td style="width:calc(100% - 110px);">
+                <p style="margin:0;line-height:40px;font-size:1.5em;font-weight:500;">{{ item.text || '&lt;Empty&gt;' }}</p>
+              </td>
+              <td style="width: 50px;">
+                <a href="#" ng-click="vm.share(item)" style="padding:3px;"><img src="/images/share-icon.svg" style="width: 16px; height: 16px;" /></a>
+                <a href="#" ng-click="vm.deleteBookmark(item)" style="padding:3px;"><img src="/images/delete-icon.svg" style="width: 16px; height: 16px;" /></a>
+              </td>
+            </tr>
+          </table>
+          <md-divider></md-divider>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
+    <script src="/bower_components/dexie/dist/dexie.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/videobookmark.js"></script>
+    <!--<script src="/scripts/popup.js"></script>-->
+    <script src="/scripts/bookmarks.js"></script>
+
+  </body>
+</html>

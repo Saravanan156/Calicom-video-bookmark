@@ -1,0 +1,99 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <title>Calicom Video Bookmarks</title>
+    <!-- build:css styles/options-vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/bookmark.css" rel="stylesheet">
+    <link href="/bower_components/angular-material/angular-material.css" rel="stylesheet">
+    <link href="/bower_components/components-font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body ng-cloak class="bookmarks" ng-controller="ShareController as vm">
+      <h1 style="width: 100%; text-align: center;">{{vm.text}}</h1>
+      <h2 style="width: 100%; text-align: center;">{{vm.title}}</h2>
+      <h3 style="width: 100%; text-align: center;">{{vm.url}}</h3>
+      <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);" class="share">
+        <a href="#"
+            class="facebook"
+            socialshare
+            socialshare-provider="facebook"
+            socialshare-text="{{vm.text}}"
+            socialshare-display="{{vm.text}}"
+            socialshare-description="{{vm.text}}"
+            socialshare-caption="{{vm.text}}"
+            socialshare-url="{{vm.url}}">
+            <i class="fa fa-facebook-official" aria-hidden="true"></i>&nbsp;
+            Facebook
+        </a>
+        <a href="#"
+            class="twitter"
+            socialshare
+            socialshare-provider="twitter"
+            socialshare-text="{{vm.text}}"
+            socialshare-display="{{vm.text}}"
+            socialshare-description="{{vm.text}}"
+            socialshare-caption="{{vm.text}}"
+            socialshare-url="{{vm.url}}">
+            <i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;
+            Twitter
+        </a>
+        <a href="#"
+            class="google"
+            socialshare
+            socialshare-provider="google"
+            socialshare-text="{{vm.text}}"
+            socialshare-display="{{vm.text}}"
+            socialshare-description="{{vm.text}}"
+            socialshare-caption="{{vm.text}}"
+            socialshare-url="{{vm.url}}">
+            <i class="fa fa-google-plus" aria-hidden="true"></i>&nbsp;
+            Google
+        </a>
+        <a href="#"
+            class="email"
+            socialshare
+            socialshare-provider="email"
+            socialshare-text="{{vm.text}}"
+            socialshare-body="{{vm.text}} - {{vm.title}}"
+            socialshare-display="{{vm.text}}"
+            socialshare-description="{{vm.text}}"
+            socialshare-caption="{{vm.text}}"
+            socialshare-body="{{vm.url}}">
+            <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
+            Email
+        </a>
+        <a href="#"
+            class="pinterest"
+            socialshare
+            socialshare-provider="pinterest"
+            socialshare-text="{{vm.text}}"
+            socialshare-body="{{vm.text}} - {{vm.title}}"
+            socialshare-display="{{vm.text}}"
+            socialshare-description="{{vm.text}}"
+            socialshare-caption="{{vm.text}}"
+            socialshare-url="{{vm.url}}">
+            <i class="fa fa-pinterest" aria-hidden="true"></i>&nbsp;
+            Pinterest
+        </a>
+      </div>
+      
+
+      <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-messages/angular-messages.js"></script>
+        <script src="/bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
+        <script src="/bower_components/dexie/dist/dexie.js"></script>
+        <script src="/bower_components/underscore/underscore.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/angular-material/angular-material.js"></script>
+        <script src="/scripts/utils.js"></script>
+        <script src="/scripts/videobookmark.js"></script>
+        <!--<script src="/scripts/popup.js"></script>-->
+        <script src="/scripts/bookmarks.js"></script>
+  </body>
+</html>

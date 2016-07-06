@@ -1,0 +1,102 @@
+<!doctype html>
+<html ng-app="app">
+  <head>
+    <title>Calicom Video Bookmarks</title>
+    <!-- build:css styles/options-vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link href="styles/bookmark.css" rel="stylesheet">
+    <link href="/bower_components/angular-material/angular-material.css" rel="stylesheet">
+    <!-- endbuild -->
+  </head>
+  <body layout="row" ng-cloak class="bookmarks" ng-controller="BookMarksController as vm">
+   <section layout="row" flex>
+    <md-sidenav
+        class="md-sidenav-left"
+        md-component-id="left"
+        md-is-locked-open="true"
+        md-disable-backdrop
+        md-whiteframe="4">
+      <md-toolbar md-theme="dark" style="text-align:center;background-color: white; color:black;">
+          <center><img src="/images/icon-128.png" style="width:100px; height: 100px;margin-top: 25px;" /></center>
+          <h1 style="font-weight: 400;font-size: 1.1em;">Calicom Video Bookmarks</h1>
+      </md-toolbar>
+      <md-content>
+        <md-divider></md-divider>
+        <md-list>
+            <md-list-item ng-click="vm.goto(null);"><h3 style="margin:0;">My Bookmarks</h3></md-list-item>
+            <md-divider></md-divider>
+            <!--<md-list-item ng-click="vm.goto(null);"><h3 style="margin:0;">Shared Bookmarks</h3></md-list-item>-->
+        </md-list>
+      </md-content>
+    </md-sidenav>
+    <md-content style="width: 100%; height: 100%; overflow: hidden;">
+        <md-toolbar style="background-color: #008FDC;width: 100%;" class="md-hue-2">
+      <div class="md-toolbar-tools">
+        <input autofocus style="width: 100%;border-radius: 5px;border-style: none;padding: 5px 10px;" ng-model="vm.searchTerm" type="text" placeholder="Search your bookmarks..." />
+      </div>
+    </md-toolbar>
+      <div style="overflow-x: hidden;padding: 30px;height: calc(100% - 124px); overflow:auto;">
+        <md-grid-list md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="4"
+        md-row-height-gt-md="1:0.8" md-row-height="2:2"
+        md-gutter="12px" md-gutter-gt-sm="8px">
+            <md-grid-tile ng-repeat="item in vm.bookmarks | search : vm.searchTerm" md-rowspan="1"
+                  md-colspan="1"
+                  md-colspan-sm="1"
+                  md-colspan-xs="1" class="md-whiteframe-2dp">
+                  <a href="https://{{vm.formattedURL(item)}}" target="_blank" style="display: block;height: 100%;font-size: 1.1em;text-decoration: none; color:black;width: 100%;">
+                    <h3 style="padding-left: 15px;max-width: calc(100% - 60px);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;" ng-style="">{{item.text.trim() || '&lt;Empty&gt;'}}</h3>
+                    <md-menu md-position-mode="target-right target">
+                    <md-button ng-click="vm.openMenu($mdOpenMenu, $event)" class="md-icon-button" aria-label="More" style="position:absolute;right: 0;top:5px;">
+                      <md-icon md-menu-origin md-svg-icon="images/morevert-icon.svg"></md-icon>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                          <md-button ng-click="vm.share(item);">
+                            Share
+                          </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                          <md-button ng-click="vm.deleteBookmark(item)">
+                            Delete
+                          </md-button>
+                        </md-menu-item>
+                      </md-menu-content>
+                    </md-menu>
+                    <img ng-src="{{vm.thumbURL(item)}}" style="width: 100%;" />
+                  </a>
+                <md-grid-tile-footer style="background-image: url('/images/tile-bg-{{::item.color}}.jpg'); display:block;">
+                    <div><h3 style="font-size: 1.5em;max-width: calc(100% - 30px);overflow: hidden;text-overflow: ellipsis;white-space: nowrap;margin-top: 5px;">{{item.title}}</h3></div>
+                    <div><h3 style="font-size: 0.9em;">{{vm.formattedURL(item)}}</h3></div>
+                </md-grid-tile-footer>
+            </md-grid-tile>
+        </md-grid-list>
+      </div>
+      <div flex></div>
+    </md-content>
+  </section>
+
+    <!-- build:js scripts/options-vendor.js -->
+    <!-- bower:js -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js scripts/options.js -->
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-socialshare/dist/angular-socialshare.js"></script>
+    <script src="/bower_components/dexie/dist/dexie.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/scripts/utils.js"></script>
+    <script src="/scripts/videobookmark.js"></script>
+    <!--<script src="/scripts/popup.js"></script>-->
+    <script src="/scripts/bookmarks.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
