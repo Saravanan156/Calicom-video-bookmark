@@ -5,13 +5,13 @@
 @brand-primary: @primaryColor;
 
 html, body{
-    font-family: Roboto;
+    font-family: Roboto, Arial;
 }
 
 #player{
     .html5-video-player{
-        &.ad-showing{
-            .ytp-bookmarkbutton{
+        &.ad-interrupting{
+            .ytp-bookmark-button{
                 display: none !important;
             }
         }
@@ -29,7 +29,6 @@ html, body{
         width: 400px;
         height: 35px;
         padding:10px;
-        display: none;
         .ytp-panel{
             width: 400px;
             height: 35px;

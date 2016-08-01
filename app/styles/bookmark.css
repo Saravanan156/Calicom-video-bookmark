@@ -1,8 +1,8 @@
 html,
 body {
-  font-family: Roboto;
+  font-family: Roboto, Arial;
 }
-#player .html5-video-player.ad-showing .ytp-bookmarkbutton {
+#player .html5-video-player.ad-interrupting .ytp-bookmark-button {
   display: none !important;
 }
 #player .html5-video-player .ytp-bookmarkbutton {
@@ -18,7 +18,6 @@ body {
   width: 400px;
   height: 35px;
   padding: 10px;
-  display: none;
 }
 #player .ytp-bookmark-menu .ytp-panel {
   width: 400px;
