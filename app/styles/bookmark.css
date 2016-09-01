@@ -1,6 +1,6 @@
 html,
 body {
-  font-family: Roboto;
+  font-family: Roboto, Arial;
 }
 #player .html5-video-player.ad-showing .ytp-bookmarkbutton {
   display: none !important;
