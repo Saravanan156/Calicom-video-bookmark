@@ -5,7 +5,7 @@
     <link href="styles/bookmark.css" rel="stylesheet">
     <link href="/bower_components/angular-material/angular-material.css" rel="stylesheet">
   </head>
-  <body style="width:350px;" ng-controller="PopupController as vm" ng-cloak>
+  <body style="width:350px;height:100%;" ng-controller="PopupController as vm" ng-cloak>
 
     <md-content>
       <md-content ng-if="vm.isYoutube" md-theme="altTheme" layout-gt-sm="row" style="padding: 5px 10px;">
@@ -29,18 +29,20 @@
         <!--<md-list-item ng-click="vm.gotoBookmarks();"><h3 style="margin:0;">Shared Bookmarks</h3></md-list-item>
         <md-divider></md-divider>-->
         <md-subheader ng-if="vm.isYoutube" class="md-no-sticky">Current Bookmarks</md-subheader>
-        <md-list-item ng-if="vm.isYoutube" ng-repeat="item in vm.bookmarks" ng-click="vm.goto(item);">
+        <md-list-item ng-if="vm.isYoutube"  ng-repeat="item in vm.bookmarks" >
           <table style="width: 100%;">
             <tr>
               <td style="width:60px;font-weight:500;">
                 <p style="margin:0;line-height:40px;font-size:1.1em;">{{vm.formatTime(item.time)}}</p>
               </td>
               <td style="width:calc(100% - 110px);">
-                <p style="margin:0;line-height:40px;font-size:1.5em;font-weight:500;">{{ item.text || '&lt;Empty&gt;' }}</p>
+               <a href="#" aria-hidden="false" style= "margin:0;line-height:40px;font-size:1.5em;font-weight:500;text-decoration:none;color:black; " ng-click="vm.goto(item)">{{ item.text || '&lt;Empty&gt;' }}</a>
               </td>
-              <td style="width: 50px;">
-                <a href="#" ng-click="vm.share(item)" style="padding:3px;"><img src="/images/share-icon.svg" style="width: 16px; height: 16px;" /></a>
-                <a href="#" ng-click="vm.deleteBookmark(item)" style="padding:3px;"><img src="/images/delete-icon.svg" style="width: 16px; height: 16px;" /></a>
+              <td style="width: 30px;">
+                <a href="#" ng-click="vm.share(item)" style="padding:3px;"><img src="/images/share-icon.svg" style="width: 16px; height: 16px;" ></a>
+              </td>
+             <td style="width: 30px;">
+                <a href="#" ng-click="vm.deleteBookmark(item)" style="padding:3px;"><img src="/images/delete-icon.svg" style="width: 16px; height: 16px;" ></a>
               </td>
             </tr>
           </table>

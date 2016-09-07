@@ -189,6 +189,7 @@ function PopupController($timeout){
 
         });
     };
+    
     vm.save = function(){
         chrome.tabs.get(vm.tabId, function (tab) {
             var time = convertTime(vm.newtime);
