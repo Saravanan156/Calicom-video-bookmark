@@ -35,6 +35,13 @@ function ShareController($location, $timeout){
         }, 0);
     });
 
+    vm.openMailTo = function(){
+        var emailUrl = 'mailto:?subject=' + vm.text + '&body=' + vm.url;
+        chrome.tabs.create({ url: emailUrl }, function(tab) {
+            
+        });
+    } 
+
 }
 
 OnEnterDirective.$inject = ['$parse'];
