@@ -53,16 +53,8 @@
             <i class="fa fa-google-plus" aria-hidden="true"></i>&nbsp;
             Google
         </a>
-        <a href="#"
-            class="email"
-            socialshare
-            socialshare-provider="email"
-            socialshare-text="{{vm.text}}"
-            socialshare-body="{{vm.text}} - {{vm.title}}"
-            socialshare-display="{{vm.text}}"
-            socialshare-description="{{vm.text}}"
-            socialshare-caption="{{vm.text}}"
-            socialshare-body="{{vm.url}}">
+        <a href="mailto:?subject={{vm.title}}&body={{vm.text}}"
+            class="email">
             <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;
             Email
         </a>
