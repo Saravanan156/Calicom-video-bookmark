@@ -25,6 +25,8 @@
 
         var vm = this;
 
+        // vm.url1 = "http://www.w3schools.com/";
+         
         var id = $location.search().id;
 
         VideoBookmark.get(id).then(function (bookmark) {
@@ -150,7 +152,7 @@
                 var newbookmark = new VideoBookmark(bookmark.id, bookmark.time, result, bookmark.url, bookmark.emoticon, bookmark.title, bookmark.color);
                 newbookmark.save();
             }, function () {
-                
+
             });
         };
 
